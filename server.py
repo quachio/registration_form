@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, session, request, flash, get
 app = Flask(__name__)
 app.secret_key = '7VL9f(u]ksirecbW4YMfBmAt37Tb@7MfEk;)i(eeaJMXqi2M2,nD+ya+aD&6gz3P'
 
-@app.route('index.html')
+@app.route('/')
 def index():
     return render_template('index.html')
 
