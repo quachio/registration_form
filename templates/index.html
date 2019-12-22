@@ -13,23 +13,38 @@
 </head>
 
 <body class="text-center">
+<div>
+
+
+</div>
 
     <form action="/register" method="POST"  class="form-signin input-group-sm">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <p class="text-left">{{ category }} - {{ message }}</p>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+   
         <!-- Email  -->
         <label for="email_input" class="sr-only">Email:</label>
-        <input type="email" name="email" id="email_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Email:" required autofocus>
+        <input type="email" name="email" id="email_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Email:" autofocus>
         <!-- First Name -->
         <label for="first_name_input" class="sr-only">First Name:</label>
-        <input type="text" name="first_name" id="first_name_input" class="form-control mb-2 border-0 rounded-sm" placeholder="First Name:" required autofocus>
+        <input type="text" name="first_name" id="first_name_input" class="form-control mb-2 border-0 rounded-sm" placeholder="First Name:" autofocus>
         <!-- Last Name -->
         <label for="last_name_input" class="sr-only">Last Name:</label>
-        <input type="text" name="last_name" id="last_name_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Last Name:" required autofocus>
+        <input type="text" name="last_name" id="last_name_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Last Name:" autofocus>
         <!-- Password -->
         <label for="password_input" class="sr-only">Password:</label>
         <input type="password" name="password" id="password_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Password:">
         <!-- Confirm Password -->
         <label for="confirm_password_input" class="sr-only">Confirmed Password:</label>
-        <input type="password" name="password" id="password_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Confirmed Password:">
+        <input type="password" name="confirmed_password" id="confirm_password_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Confirmed Password:">
+        <!-- Birth Date -->
+        <label for="birthday_input" class="sr-only">Birthday</label>
+        <input type="date" name="date" id="birthday_input" class="form-control mb-2 border-0 rounded-sm" placeholder="Birthday">
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 
